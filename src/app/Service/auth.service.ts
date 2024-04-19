@@ -10,12 +10,16 @@ export class AuthService {
 
   constructor( private router: Router) { }
 
-  isLoggedIn(): boolean {
-    return this.loggedIn;
+  setLoggedIn(value: boolean): void {
+    sessionStorage.setItem('isLoggedIn', value ? 'true' : 'false');
   }
 
-  setLoggedIn(value: boolean): void {
-    this.loggedIn = value;
+  isLoggedIn(): boolean {
+    return sessionStorage.getItem('isLoggedIn') === 'true';
+  }
+
+  logout(): void {
+    sessionStorage.removeItem('isLoggedIn');
   }
   
 }
