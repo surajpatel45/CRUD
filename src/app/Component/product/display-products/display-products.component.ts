@@ -3,6 +3,7 @@ import { Product } from '../../../Model/product';
 import { ProductService } from '../../../Service/product.service';
 import { Router } from '@angular/router';
 import { SearchProductPipe } from '../../../Pipe/search-product.pipe';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-display-products',
@@ -12,7 +13,7 @@ import { SearchProductPipe } from '../../../Pipe/search-product.pipe';
 export class DisplayProductsComponent {
   products!: Product[];
   productsearch: string = '';
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(private productService: ProductService, private router: Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.displayProducts();
@@ -32,10 +33,14 @@ export class DisplayProductsComponent {
 
   removeProduct(id: number) {
     this.productService.removeProduct(id).subscribe( data=> {
-      window.alert("Product Removed succesfully");
+      this.toastr.success('Product removed successfully','Success');
+      this.displayProducts();
+    },
+    error => {
+      console.log(error);
+      this.toastr.error('Failed to Remove product', 'Error');
       this.displayProducts();
     });
-    
     this.router.navigateByUrl('/product/display-products');
   }
 }

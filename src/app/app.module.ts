@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './Service/product.service';
 import { AuthService } from './Service/auth.service';
 import { SearchProductPipe } from './Pipe/search-product.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,13 @@ import { SearchProductPipe } from './Pipe/search-product.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    })
   ],
   providers: [ProductService, AuthService],
   bootstrap: [AppComponent]
