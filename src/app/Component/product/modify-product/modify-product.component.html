@@ -1,0 +1,32 @@
+<div class="container col-md-6 offset-mid-3">
+    <h3 class="text-center"> Modify Product </h3>
+    <form (ngSubmit) = "onSubmit()" autocomplete="off">
+
+        <div class="form-group">
+            <label style="margin-bottom: 10px"> Product Id </label>
+            <input type="number" class="form-control" style="margin-bottom: 10px" id="productId" [(ngModel)] = "product.id" name="productId">
+        </div>
+
+        <div class="form-group">
+            <label style="margin-bottom: 10px"> Product Name </label>
+            <input type="text" class="form-control" style="margin-bottom: 10px" id="productName" [(ngModel)] = "product.name" name="productName">
+        </div>
+
+        <div class="form-group">
+            <label style="margin-bottom: 10px"> Description </label>
+            <input type="text" class="form-control" style="margin-bottom: 10px" id="productDescription" [(ngModel)] = "product.description" name="productDescription">
+        </div>
+
+        <div class="form-group">
+            <label style="margin-bottom: 10px"> Unit Price </label>
+            <input type="number" class="form-control" style="margin-bottom: 10px" id="productUnitPrice" [(ngModel)] = "product.unitPrice" name="productUnitPrice">
+        </div>
+
+        <div class="form-group">
+            <label style="margin-bottom: 10px"> Quantity </label>
+            <input type="number" class="form-control" style="margin-bottom: 10px" id="productQuantity" [(ngModel)] = "product.quantity" name="productQuantity">
+        </div>
+
+        <button class="btn btn-success" type="submit"> Submit </button>
+    </form>
+</div>

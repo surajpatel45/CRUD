@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .card h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  .card p {
+    color: #666;
+  }
+  .card a {
+    display: block;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  .card a:hover {
+    color: #0056b3;
+  }
