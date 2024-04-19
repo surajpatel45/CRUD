@@ -7,12 +7,14 @@ import { Product } from '../Model/product';
 export class SearchProductPipe implements PipeTransform {
 
   transform(products: Product[], productsearch: string): Product[] {
-    if(productsearch){
-      return products.filter(Product => {
-        return Product.name
-      });
-    }
-    return products;
+
+    if(!products) return [];
+    if(!productsearch) return products;
+    
+    productsearch = productsearch.toLowerCase();
+    return products.filter(product => {
+      return product.name.toLowerCase().includes(productsearch);
+    });
   }
 
 }
