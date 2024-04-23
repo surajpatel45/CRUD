@@ -1,34 +1,34 @@
-<div class="container col-md-6 offset-mid-3 ">
+<div class="container col-md-6 offset-mid-3">
     <h3 class="text-center"> Add Product </h3>
-    <form (ngSubmit) = "onSubmit()" autocomplete="off">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
         <div class="form-group">
             <label style="margin-bottom: 10px"> Product Id </label>
-            <input type="number" class="form-control" style="margin-bottom: 10px" id="productId" [(ngModel)] = "product.id" name="productId">
+            <input type="number" class="form-control" style="margin-bottom: 10px" formControlName="id">
         </div>
 
         <div class="form-group">
             <label style="margin-bottom: 10px"> Product Name </label>
-            <input type="text" class="form-control" style="margin-bottom: 10px" id="productName" [(ngModel)] = "product.name" name="productName">
+            <input type="text" class="form-control" style="margin-bottom: 10px" formControlName="name">
         </div>
 
         <div class="form-group">
             <label style="margin-bottom: 10px"> Description </label>
-            <input type="text" class="form-control" style="margin-bottom: 10px" id="productDescription" [(ngModel)] = "product.description" name="productDescription">
+            <input type="text" class="form-control" style="margin-bottom: 10px" formControlName="description">
         </div>
 
         <div class="form-group">
             <label style="margin-bottom: 10px"> Unit Price </label>
-            <input type="number" class="form-control" style="margin-bottom: 10px" id="productUnitPrice" [(ngModel)] = "product.unitPrice" name="productUnitPrice">
+            <input type="number" class="form-control" style="margin-bottom: 10px" formControlName="unitPrice">
         </div>
 
         <div class="form-group">
             <label style="margin-bottom: 10px"> Quantity </label>
-            <input type="number" class="form-control" style="margin-bottom: 10px" id="productQuantity" [(ngModel)] = "product.quantity" name="productQuantity">
+            <input type="number" class="form-control" style="margin-bottom: 10px" formControlName="quantity">
         </div>
 
         <div class="text-center">
-            <button class="btn btn-success" type="submit">Submit</button>
+            <button class="btn btn-success" type="submit" [disabled]="!productForm.valid">Submit</button>
         </div>
     </form>
 </div>
