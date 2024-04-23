@@ -21,6 +21,7 @@ import { AuthService } from './Service/auth.service';
 import { SearchProductPipe } from './Pipe/search-product.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 2000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-    })
+    }),
+    GridModule
   ],
   providers: [ProductService, AuthService],
   bootstrap: [AppComponent]

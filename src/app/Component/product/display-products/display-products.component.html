@@ -5,29 +5,19 @@
             <input placeholder="Search" type="text" class="form-control" [(ngModel)]='productsearch'>
         </div>
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th> Id </th>
-                <th> Name </th> 
-                <th> Description </th>
-                <th> Unit Price </th>
-                <th> Quantity</th>
-                <th> Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products | searchProduct : productsearch">
-                <td> {{ product.id }} </td>
-                <td> {{ product.name }} </td>
-                <td> {{ product.description }} </td>
-                <td> {{ product.unitPrice }} </td>
-                <td> {{ product.quantity }} </td>
-                <td>
-                    <button (click) = "modifyProduct(product.id)" class="btn btn-sm btn-info" style="margin-right: 10px;"> Modify </button>
-                    <button (click) = "removeProduct(product.id)" class="btn btn-sm btn-danger" style="margin-right: 10px;"> Remove </button>                
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <ejs-grid [dataSource]="products | searchProduct: productsearch" allowPaging="true" class="syncfusion-table">
+        <e-columns>
+            <e-column field="id" headerText="Id" width="100"></e-column>
+            <e-column field="name" headerText="Name" width="200"></e-column>
+            <e-column field="description" headerText="Description" width="300"></e-column>
+            <e-column field="unitPrice" headerText="Unit Price" width="150"></e-column>
+            <e-column field="quantity" headerText="Quantity" width="100"></e-column>
+            <e-column headerText="Action" width="200">
+                <ng-template #template let-data>
+                    <button (click)="modifyProduct(data.id)" class="btn btn-sm btn-info" style="margin-right: 2%;">Modify</button>
+                    <button (click)="removeProduct(data.id)" class="btn btn-sm btn-danger" style="margin-right: 2%;">Remove</button>
+                </ng-template>
+            </e-column>
+        </e-columns>
+    </ejs-grid>
 </div>
