@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './Component/about/about.component';
 import { HomeComponent } from './Component/home/home.component';
 import { LoginComponent } from './Component/login/login.component';
-import { LogoutComponent } from './Component/logout/logout.component';
 import { RegisterComponent } from './Component/register/register.component';
 import { ProductComponent } from './Component/product/product.component';
 import { AuthGuard } from './auth.guard';
@@ -44,10 +43,6 @@ const routes: Routes = [
   {
     path:'login',
     component: LoginComponent,
-  },
-  {
-    path:'logot',
-    component: LogoutComponent
   }
 ];
 

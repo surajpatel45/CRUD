@@ -9,7 +9,6 @@ import { AboutComponent } from './Component/about/about.component';
 import { ProductComponent } from './Component/product/product.component';
 import { RegisterComponent } from './Component/register/register.component';
 import { LoginComponent } from './Component/login/login.component';
-import { LogoutComponent } from './Component/logout/logout.component';
 import { AddProductComponent } from './Component/product/add-product/add-product.component';
 
 import { RemoveProductComponent } from './Component/product/remove-product/remove-product.component';
@@ -30,7 +29,6 @@ import { ToastrModule } from 'ngx-toastr';
     ProductComponent,
     RegisterComponent,
     LoginComponent,
-    LogoutComponent,
     AddProductComponent,
     RemoveProductComponent,
     ModifyProductComponent,
