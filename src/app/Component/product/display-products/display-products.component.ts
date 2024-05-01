@@ -20,11 +20,16 @@ export class DisplayProductsComponent {
   }
 
   displayProducts() {
-    this.productService.displayProducts().subscribe(data =>{
-      this.products = data;
-      console.log(this.products);
-      console.log(data);
-    });
+    this.productService.displayProducts().subscribe(
+      data =>{
+        this.products = data;
+        console.log(this.products);
+        // console.log(data);
+      }, 
+      error => {
+        this.toastr.error('Can not display products!','Error');
+      }
+    );
   }
 
   modifyProduct(id: number) {
@@ -32,15 +37,17 @@ export class DisplayProductsComponent {
   }
 
   removeProduct(id: number) {
-    this.productService.removeProduct(id).subscribe( data=> {
-      this.toastr.success('Product removed successfully','Success');
-      this.displayProducts();
-    },
-    error => {
-      console.log(error);
-      this.toastr.error('Failed to Remove product', 'Error');
-      this.displayProducts();
-    });
+    this.productService.removeProduct(id).subscribe( 
+      data=> {
+        this.toastr.success('Product removed successfully','Success');
+        this.displayProducts();
+      },
+      error => {
+        console.log(error);
+        this.toastr.error('Failed to Remove product', 'Error');
+        this.displayProducts();
+      }
+    );
     this.router.navigateByUrl('/product/display-products');
   }
 }

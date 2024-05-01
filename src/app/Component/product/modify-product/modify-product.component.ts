@@ -22,13 +22,15 @@ export class ModifyProductComponent implements OnInit{
   }
 
   onSubmit(){
-    this.productService.modifyProduct(this.id, this.product).subscribe( data=> {
-      this.toastr.success('Product modified successfully','Success');
-    },
-    error =>{
-      console.log(error);
-      this.toastr.error('Failed to modify product','Error');
-    });
+    this.productService.modifyProduct(this.id, this.product).subscribe( 
+      data=> {
+        this.toastr.success('Product modified successfully','Success');
+      },
+      error =>{
+        console.log(error);
+        this.toastr.error('Failed to modify product','Error');
+      }
+    );
     this.router.navigateByUrl('/product/display-products');
   }
 }
